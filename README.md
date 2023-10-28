@@ -7,6 +7,8 @@ npm install --save-dev sequelize-cli@6.2.0
 
 npm install --save sequelize@6.6.2
 
+npm install --save mysql2@2.2.5
+
 npx sequelize-cli init
 
 npm install --save mysql2@2.2.5
