@@ -42,8 +42,12 @@
                         <%= dataTable[i].address %>
                     </td>
                     <td class="flex text-center">
-                        <i class="fa-solid fa-trash me-3 pointer"></i>
-                        <i class="fa-solid fa-pen-to-square pointer"></i>
+                        <a href="/edit-crud?id=<%= dataTable[i].id %>">
+                            <i class="fa-solid fa-pen-to-square pointer"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa-solid fa-trash me-3 pointer"></i>
+                        </a>
                     </td>
                 </tr>
                 <% } %>
