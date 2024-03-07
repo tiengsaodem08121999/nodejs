@@ -35,18 +35,29 @@ let getEditCRUD = async (req, res) => {
     let userData = await CRUDservices.getUserById(userId);
     return res.render('editCRUD', {
       User: userData,
-    });    
+    });
   }
   else {
     return res.send('user not found!');
   }
 }
 
-let putCRUD  =  async (req, res) => {
-    let data = req.body;
-    await CRUDservices.updateUser(data);
-    return res.send('Update Done!');
-} 
+let putCRUD = async (req, res) => {
+  let data = req.body;
+  await CRUDservices.updateUser(data);
+  return res.send('Update Done!');
+}
+
+let deleteCRUD = async (req, res) => {
+  let id = req.query.id;
+  if (id) {
+    await CRUDservices.deleteUserById(id);
+    return res.send('Succeed');
+  }
+  else {
+    return res.send('User not found !');
+  }
+}
 
 module.exports = {
   getHomePage: getHomePage,
@@ -55,4 +66,5 @@ module.exports = {
   displayGetCRUD: displayGetCRUD,
   getEditCRUD: getEditCRUD,
   putCRUD: putCRUD,
+  deleteCRUD: deleteCRUD,
 };
