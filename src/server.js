@@ -20,5 +20,5 @@ connectDB();
 let port = process.env.PORT || 6969;
 app.listen(port, () => {
   //callback
-  console.log("back end nodejs is runing on the port:" + port);
+  console.log("Back end nodejs is runing on the port:" + port);
 });
