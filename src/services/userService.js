@@ -9,7 +9,9 @@ let handleUserLogin = (email, password) => {
             if (isExist) {
                 // user already exist 
                 let user = await db.User.findOne({
+                    attributes: ['email', 'roleId', 'password'],
                     where: { email: email },
+                    raw: true,
                 });
                 if (user) {
                     // compare password
@@ -17,8 +19,8 @@ let handleUserLogin = (email, password) => {
                     if (checkPassword) {
                         userData.errCode = 0;
                         userData.message = "ok";
+                        delete user.password;
                         userData.userInfo = user;
-                   
                     } else {
                         userData.errCode = 3;
                         userData.message = "The user or password does not match the system";
